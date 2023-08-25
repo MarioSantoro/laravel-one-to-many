@@ -21,7 +21,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-trasparent shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Mario Santoro
