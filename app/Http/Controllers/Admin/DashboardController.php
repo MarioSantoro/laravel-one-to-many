@@ -18,7 +18,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(10);
+        $projects = Project::Paginate(10);
         return view('admin.home', compact('projects'));
     }
 

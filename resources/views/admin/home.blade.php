@@ -49,7 +49,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $projects->links() }}
+                        {!! $projects->links() !!}
                     </div>
                 </div>
             </div>

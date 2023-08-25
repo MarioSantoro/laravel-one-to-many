@@ -25,7 +25,7 @@
                                     <tr>
                                         <th scope="row">{{ $project->id }}</th>
                                         <td>{{ $project->title }}</td>
-                                        <td>{{ $project->type }}</td>
+                                        <td>{{ $project->type->name }}</td>
                                         <td>{{ $project->status }}</td>
                                         <td>{{ $project->start_date }}</td>
                                         <td>{{ $project->end_date }}</td>
