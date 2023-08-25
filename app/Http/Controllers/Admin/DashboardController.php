@@ -70,7 +70,8 @@ class DashboardController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.edit', compact('project', 'types'));
     }
 
     /**
@@ -81,7 +82,7 @@ class DashboardController extends Controller
         $data = $request->validate(
             [
                 'title' => ['required', 'min:3',  Rule::unique('projects')->ignore($project->id),],
-                'type' => ['required', 'min:3'],
+                'type_id' => ['required'],
                 'status' => ['required', 'min:3'],
                 'start_date' => ['required', 'date_format:Y-m-d'],
                 'end_date' => ['required', 'date_format:Y-m-d'],
