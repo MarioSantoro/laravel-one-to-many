@@ -21,7 +21,7 @@
             <div class="form-group m-2">
                 <label for="shoreLocation">Type</label>
                 <input type="text" class="form-control" id="shoreLocation" name="type"
-                    placeholder="Enter the location of your company" value="{{ old('type', $project->type) }}">
+                    placeholder="Enter the location of your company" value="{{ old('type', $project->type->name) }}">
             </div>
             <div class="form-group m-2">
                 <label for="shoreUmbrella">Status</label>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,8 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        $types = Type::all();
+        return view('admin.create', compact('types'));
     }
 
     /**
@@ -38,7 +40,7 @@ class DashboardController extends Controller
         $data = $request->validate(
             [
                 'title' => ['required', 'min:3', 'unique:projects'],
-                'type' => ['required', 'min:3'],
+                'type_id' => ['required'],
                 'status' => ['required', 'min:3'],
                 'start_date' => ['required', 'date_format:Y-m-d'],
                 'end_date' => ['required', 'date_format:Y-m-d'],

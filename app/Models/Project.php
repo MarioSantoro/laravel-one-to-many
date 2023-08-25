@@ -12,7 +12,7 @@ class Project extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'title', 'type', 'start_date', 'end_date', 'status', 'image'
+        'title', 'type_id', 'start_date', 'end_date', 'status', 'image'
     ];
 
     public function getRouteKeyName(): string
