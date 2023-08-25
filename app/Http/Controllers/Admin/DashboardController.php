@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
+
 class DashboardController extends Controller
 {
     /**
@@ -17,7 +18,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::paginate(10);
         return view('admin.home', compact('projects'));
     }
 
