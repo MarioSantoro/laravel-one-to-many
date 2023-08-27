@@ -25,9 +25,12 @@
                 </select>
             </div>
             <div class="form-group m-2">
-                <label for="shoreUmbrella">Status</label>
-                <input type="text" class="form-control" id="shoreUmbrella" name="status"
-                    placeholder="Enter the numbre of your beach umbrellas" value="{{ old('status') }}">
+                <label for="shoreLocation">Status</label>
+                <select name="status_id" id="shoreLocation">
+                    @foreach ($statuses as $status)
+                        <option value="{{ $status->id }}">{{ $status->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group m-2">
                 <label for="shoreBeds">Image</label>

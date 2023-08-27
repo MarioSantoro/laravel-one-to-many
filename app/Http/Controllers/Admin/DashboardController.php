@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Status;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class DashboardController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.create', compact('types'));
+        $statuses = Status::all();
+        return view('admin.create', compact('types', 'statuses'));
     }
 
     /**
@@ -41,7 +43,7 @@ class DashboardController extends Controller
             [
                 'title' => ['required', 'min:3', 'unique:projects'],
                 'type_id' => ['required'],
-                'status' => ['required', 'min:3'],
+                'status_id' => ['required'],
                 'start_date' => ['required', 'date_format:Y-m-d'],
                 'end_date' => ['required', 'date_format:Y-m-d'],
                 'image' => ['required', 'image']
@@ -71,7 +73,8 @@ class DashboardController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
-        return view('admin.edit', compact('project', 'types'));
+        $statuses = Status::all();
+        return view('admin.edit', compact('project', 'types', 'statuses'));
     }
 
     /**
@@ -83,7 +86,7 @@ class DashboardController extends Controller
             [
                 'title' => ['required', 'min:3',  Rule::unique('projects')->ignore($project->id),],
                 'type_id' => ['required'],
-                'status' => ['required', 'min:3'],
+                'status_id' => ['required'],
                 'start_date' => ['required', 'date_format:Y-m-d'],
                 'end_date' => ['required', 'date_format:Y-m-d'],
                 'image' => ['required', 'image']

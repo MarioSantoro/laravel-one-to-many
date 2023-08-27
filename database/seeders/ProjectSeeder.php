@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Status;
 use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,12 +17,12 @@ class ProjectSeeder extends Seeder
     public function run(Faker $faker): void
     {
         $typeIds = Type::all()->pluck('id');
-        $status = ['In Progress', 'Ended'];
+        $statusIds = Status::all()->pluck('id');
         for ($i = 0; $i < 40; $i++) {
             $newProject = new Project();
             $newProject->type_id = $faker->randomElement($typeIds);
+            $newProject->status_id = $faker->randomElement($statusIds);
             $newProject->title = $faker->sentence(2);
-            $newProject->status = $faker->randomElement($status);
             $newProject->image = $faker->imageUrl(360, 360, 'code', true);
             $newProject->start_date = $faker->date();
             $newProject->end_date = $faker->date();

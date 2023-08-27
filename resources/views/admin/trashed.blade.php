@@ -26,7 +26,7 @@
                                         <th scope="row">{{ $project->id }}</th>
                                         <td>{{ $project->title }}</td>
                                         <td>{{ $project->type->name }}</td>
-                                        <td>{{ $project->status }}</td>
+                                        <td>{{ $project->status->name }}</td>
                                         <td>{{ $project->start_date }}</td>
                                         <td>{{ $project->end_date }}</td>
                                         <td class="d-flex justify-content-evenly">
